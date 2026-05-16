@@ -1,8 +1,10 @@
-Dependabot will do a targetted update of direct dependencies... this app will update all dependencies
-(both direct and indirect) on a schedule.
+While [Dependabot](https://github.com/dependabot) will do a targetted update of direct dependencies only, this app will update all
+dependencies (both direct and indirect) and trim them with `go mod tidy` on a schedule. If there are changes, it will generate a pull request with the changes - see an [example](https://github.com/map-services/company-data-api/pull/99).
 
-First create a new private key from https://github.com/organizations/go-dependency-updates/settings/apps/go-dependency-updates. Then, in your Golang repository, go to **Settings > Secrets and variables > Actions` and
-* add `APP_ID` of 3654108 as a repository variable
+## Configuration
+
+First create a new private key from https://github.com/organizations/go-dependency-updates/settings/apps/go-dependency-updates. Then, in your Golang repository, go to **Settings > Secrets and variables > Actions** and
+* add `APP_ID` of **3654108** as a repository variable
 * add `APP_PRIVATE_KEY` being the content of that private key 
 
 Add a file to your repo as `.github/workflows/go_dependencies.yml`:
